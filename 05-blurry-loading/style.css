@@ -19,17 +19,13 @@ body {
     width: calc(100vw + 60px);
     height: calc(100vh + 60px);
     position: absolute;
-    top: -30px;
     left: -30px;
+    right: -30px;
     z-index: -1;
-    filter: blur(0px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    filter: blur(00px)
 }
 
 .loading-text {
-    color: #fff;
+    color: white;
     font-size: 50px;
 }
-
