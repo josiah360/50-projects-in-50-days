@@ -28,72 +28,66 @@ h1 {
     margin-bottom: 30px;
 }
 
-.container a {
-    text-decoration: none;
-    color: lightblue;
+.form-controller {
+    position: relative;
+    margin: 30px 0;
+}
+
+.form-controller input {
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-bottom: 2px white solid;
+    padding: 15px 0;
+    display: block;
+    width: 100%;
+    font-size: 18px;
+}
+
+.form-controller input:focus,
+.form-controller input:valid {
+    outline: 0;
+    border-bottom-color: lightblue;
+}
+
+.form-controller label {
+    position: absolute;
+    top: 15px;
+    left: 0;
 }
 
 .btn {
     display: inline-block;
-    width: 100%;
-    background-color: lightblue;
+    width: 100%;    
     padding: 15px;
-    font-family: inherit;
+    margin-top: 20px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
-}
-
-.btn {
-    outline: 0;
+    background: lightblue;
+    cursor: pointer;
 }
 
 .btn:active {
     transform: scale(0.98);
 }
 
-.text {
-    margin-top: 30px;
-}
-
-.form-control {
-    position: relative;
-    margin: 20px 0 40px ;
-    width: 300px
-}
-
-.form-control input {
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px white solid;
-    display: block;
-    width: 100%;
-    padding: 15px 0;
-    font-size: 18px;
-    color: #fff;
-}
-
-.form-control input:focus,
-.form-control input:valid {
+.btn:focus {
     outline: 0;
-    border-bottom-color: lightblue;
 }
 
-.form-control label {
-    position: absolute;
-    top: 15px;
-    left: 0;
+.text a {
+    color: lightblue;
+    text-decoration: none;
 }
 
-.form-control label span {
-    display: inline-block;
+.form-controller input + label span {
     font-size: 18px;
-    min-width: 5px;
-    transition: .3s cubic-bezier(.48,1.96,.45,1.18);
+    display: inline-block;
+    transition: .3s cubic-bezier(.48,1.96,.36,1.39);
 }
 
-.form-control input:focus + label span,
-.form-control input:valid + label span {
+.form-controller input:focus + label span {
     color: lightblue;
     transform: translateY(-30px);
 }
