@@ -1,32 +1,31 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     margin: 0;
+    display: flex;
+    width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
 }
 
-.container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    background: #333;
-}
-
-.split {
+.bg {
+    background: url('./img/andy-holmes-xA26xebY3dw-unsplash.jpg') no-repeat center center / cover;
+    width: calc(100vw + 60px);
+    height: calc(100vh + 60px);
     position: absolute;
-    width: 50%;
-    height: 100%;
-    overflow: hidden;
+    left: -30px;
+    right: -30px;
+    z-index: -1;
+    filter: blur(00px)
 }
 
-.split-left {
-    left: 0;
-    background-image: url();
+.loading-text {
+    color: white;
+    font-size: 50px;
 }
