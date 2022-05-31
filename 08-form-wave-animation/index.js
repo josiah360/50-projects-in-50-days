@@ -1,9 +1,8 @@
-const container = document.querySelector('.container');
-const left = document.querySelector('.left');
-const right = document.querySelector('.right');
+const labels = document.querySelectorAll('.form-control label');
 
-left.addEventListener('mouseenter', () => container.classList.add('left-active'));
-left.addEventListener('mouseleave', () => container.classList.remove('left-active'));
-
-right.addEventListener('mouseenter', () => container.classList.add('right-active'));
-right.addEventListener('mouseleave', () => container.classList.remove('right-active'));
+labels.forEach(label => {
+    label.innerHTML = label.innerText
+    .split('')
+    .map((letter, idx) => `<span style="transition-delay: ${idx * 20}ms">${letter}</span>`)
+    .join('')
+})
