@@ -6,104 +6,60 @@
 }
 
 body {
-    background-image: linear-gradient(yellow 0, yellow 50%, orange 50%, orange 100%);
+    background-color: #eafbff;
+    background-image: linear-gradient(to bottom, #eafbff 0%, #eafbff 50%, #5290f9 50%, #5290f9 100%);
     font-family: 'Muli', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
-    overflow: hidden;
     padding: 1rem;
-
 }
 
-
-.container {
-    position: relative;
+nav {
+    background-color: #fff;
+    padding: 20px;
+    width: 80px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    background-color: aliceblue;
-    height: 50px;
-    width: 50px;
-    padding: 1rem;
-    transition: width 1s ease;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: width 0.6s linear;
 }
 
-.container.active {
-    width: 300px;
+nav.active {
+    width: 350px;
 }
 
-.container .menus {
-    display: flex;
+nav ul {
+    display: flex ;
+    list-style-type: none;
     margin: 0;
     padding: 0;
-    list-style-type: none;
+    width: 0;
+    transition: width 0.6s linear;
 }
 
-.menus .menu {
-    margin: 0 5px;
-    font-size: 14px;
+nav.active ul {
+    width: 100% ;
+}
+
+nav ul li {
     transform: rotateY(0deg);
     opacity: 0;
-    transition: transform 1s ease, opacity 1s ease;
+    transition: transform .6s linear, opacity .6s linear;
 }
 
-.container.active .menus .menu {
-    opacity: 1;
+nav.active ul li {
     transform: rotateY(360deg);
+    opacity: 1;
 }
 
-
-
-.container .btn {
-    position: absolute;
-    height: 30px;
-    width: 30px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.container .active:focus {
-    outline: 0;
-}
-
-
-.container.active .btn {
-    right: 10px;
-    top: 12px;
-   
-}
-
-.container .btn .toggle {
-    position: absolute;
-    width: 20px;
-    height: 2px;
-    background-color: orange;
-    left: 0;
-    transition: 1s ease;
-}
-
-.container .btn .top{
-    top: 12px;
-    transform: rotate(0deg);
-
-}
-
-.container.active .btn .top{
-    top: 12px;
-    transform: rotate(45deg);
-
-}
-
-.container .btn .bottom {
-    bottom: 10px;
-    transform: rotate(0deg);
-}
-
-.container.active .btn .bottom {
-    bottom: 16px;
-    transform: rotate(-45deg);
+nav ul a{
+    position: relative;
+    color: rgb(66, 66, 66);
+    text-decoration: none;
+    margin: 0 10px;
 }
