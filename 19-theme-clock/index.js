@@ -20,7 +20,6 @@ function updateClock() {
     updateTime(hour, time, minute)
 
     thisDate.innerHTML = `${day[currentDay]}, ${month[currentMonth]} <span class="circle">${date.getDate()}</span>`
-
 }
 
 function updateClockHand(hour, minute, second) {

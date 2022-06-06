@@ -69,7 +69,7 @@ body {
     height: 65px;
     width: 3px;
     transform-origin: bottom center;
-    transition: transform 0.1s ease;
+    transition: transform 0.1s cubic-bezier(.97,1.61,.87,1.71);
 }
 
 .needle.hour {
