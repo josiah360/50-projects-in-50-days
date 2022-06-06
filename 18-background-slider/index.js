@@ -7,7 +7,7 @@ let currentActive = 0;
 
 arrowRight.addEventListener('click', () => {
     currentActive += 1;
-    updateActive(currentActive)
+    updateActive()
     updateSlide(slides, currentActive)
     updateBackground(body, slides, currentActive)
 })
@@ -15,12 +15,12 @@ arrowRight.addEventListener('click', () => {
 arrowLeft.addEventListener('click', () => {
     currentActive -= 1;
 
-    updateActive(currentActive)
-    updateSlide(slides, currentActive)
+    updateActive()
+    updateSlide()
     updateBackground(body, slides, currentActive)
 })
 
-function updateActive(current) {
+function updateActive() {
     if(currentActive > (slides.length - 1)) {
         currentActive = 0;
     } else if(currentActive < 0) {
@@ -28,7 +28,7 @@ function updateActive(current) {
     }
 }
 
-function updateSlide(slid, current) {
+function updateSlide() {
     slides.forEach(slide => {
         slide.classList.remove('active')
     })
