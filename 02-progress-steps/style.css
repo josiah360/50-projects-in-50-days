@@ -19,82 +19,83 @@ body {
     align-items: center;
 }
 
-.container {
-  text-align: center;
-  width: 350px;
-
-}
-
-.progress-container {
+.slides-container {
     display: flex;
     justify-content: space-between;
-    position: relative;
+    width: 300px;
     margin-bottom: 50px;
+    position: relative
 }
 
-.progress-container::before {
+.slides-container::before {
     content: '';
     position: absolute;
-    background-color: var(--inactive-color);
-    width: 100%;
+    background-color:  rgb(200, 215, 233);
     height: 3px;
-    left: 0;
+    width: 100%;
     top: 50%;
     transform: translateY(-50%);
     z-index: -1;
 }
 
-.progress {
+.range {
     position: absolute;
-    background-color: var(--active-color);
-    width: 0%;
+    background-color: rgb(87, 160, 243);
     height: 3px;
-    left: 0;
+    width: 0;
     top: 50%;
     transform: translateY(-50%);
+    transition: width .3s ease;
     z-index: -1;
-    transition: .5s ease;
 }
 
 .circle {
     background-color: #fff;
-    border: var(--inactive-color) solid 3px ;
+    font-size: 14px;
+    color: rgb(200, 215, 233);
     width: 30px;
     height: 30px;
+    border: 3px solid rgb(200, 215, 233);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: .8em;
-    color: var(--inactive-color);
-    transition: .5s ease;
+    transition: .3s ease;
 }
 
 .circle.active {
-    border: var(--active-color) solid 3px;
-    color: var(--active-color);
+    border: 3px solid rgb(87, 160, 243);
+    color: rgb(87, 160, 243);
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
 }
 
 .btn {
-    border: none;
     padding: 10px 30px;
-    margin: 5px;
-    border-radius: 5px;
-    background-color: var(--active-color);
-    color: #fff;
+    background-color: rgb(87, 160, 243);
+    font-family: inherit;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: white;
+    border: 0;
+    border-radius: 3px;
     cursor: pointer;
 }
 
 .btn:active {
-    outline: 0;
     transform: scale(0.98);
 }
 
-.btn:active {
+.btn:focus {
     outline: 0;
 }
 
 .btn:disabled {
-    background-color: var(--inactive-color);
+    background-color: rgb(200, 215, 233);
+    color: rgb(143, 160, 180);
     cursor: not-allowed;
 }
