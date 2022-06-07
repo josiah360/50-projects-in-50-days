@@ -1,13 +1,11 @@
-const openNav = document.getElementById('open');
-const closeNav = document.getElementById('close');
-const container = document.getElementsByClassName('container');
+const openBtn = document.querySelector('.open');
+const closeBtn = document.querySelector('.close');
+const container = document.querySelector('.container')
 
-
-openNav.addEventListener('click', function() {
-    container[0].classList.add('show-nav');
-    console.log(this)
+openBtn.addEventListener('click', () => {
+    container.classList.add('active')
 })
 
-closeNav.addEventListener('click', () => {
-    container[0].classList.remove('show-nav');
+closeBtn.addEventListener('click', () => {
+    container.classList.remove('active')
 })
