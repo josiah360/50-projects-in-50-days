@@ -1,13 +1,12 @@
+const searchBtn = document.querySelector('.btn');
 const search = document.querySelector('.search');
-const input = document.querySelector('.input');
-const btn = document.querySelector('.btn');
+const container = document.querySelector('.container');
 
-btn.addEventListener('click', () => {
-    search.classList.toggle('active');
-    input.focus()
+searchBtn.addEventListener('click', () => {
+    search.focus()
+    container.classList.toggle('active')
 })
 
-input.addEventListener('blur', () => {
-    search.classList.remove('active');
+search.addEventListener('blur', () => {
+    container.classList.remove('active')
 })
-

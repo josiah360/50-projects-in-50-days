@@ -14,45 +14,42 @@ body {
     align-items: center;
 }
 
-.search {
-    height: 50px;
+.container {
+    box-shadow: 0 3px 6px rgba(0,0,0,.2);
     position: relative;
-
 }
 
-.search .input {
-    background-color: #fff;
-    border: 0;
-    width: 50px;
+.search {
     height: 50px;
-    font-size: 18px;
-    padding: 15px;
+    width: 50px;
+    padding: 10px;
+    border: none;
+    font-size: 16px;
     transition: width .3s ease;
 }
 
-.search .btn {
-    border: none;
+.container.active .search {
+    width: 300px;
+}
+
+.search:focus {
+    outline: none;
+}
+
+.btn {
+    height: 50px;
+    width: 50px;
+    border: 0;
     background-color: #fff;
+    font-size: 18px;
+    overflow: hidden;
     position: absolute;
     left: 0;
     top: 0;
-    width: 50px;
-    height: 50px;
-    font-size: 22px;
-    transition: transform .3s ease;
     cursor: pointer;
+    transition: transform .3s ease;
 }
 
-.input:focus, 
-.btn:focus {
-    outline: 0;
+.container.active .btn {
+    transform: translateX(300px);
 }
-
-.search.active .input {
-    width: 200px;
-}
-
-.search.active .btn {
-    transform: translateX(200px);
-}
-
