@@ -1,21 +1,19 @@
-const bg = document.querySelector('.bg');
-const loadingText = document.querySelector('.loading-text');
+const boxes = document.querySelectorAll('.box');
 
-let load = 0;
+checkboxes()
 
-const int = setInterval(blurring, 30)
+window.addEventListener('scroll', checkboxes);
 
-function blurring() {
-    load += 1;
+function checkboxes() {
+    const triggerBottom = window.innerHeight / 5 * 4;
+    
+    boxes.forEach(box => {
+        const boxTop = box.getBoundingClientRect().top;
 
-    if(load > 99) {
-        clearInterval(int)
-    }
-    loadingText.innerText = `${load}%`;
-    loadingText.style.opacity = scale(load, 0, 100, 1, 0)
-    bg.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)`
-}
-
-function scale (number, inMin, inMax, outMin, outMax) {
-    return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+        if(boxTop < triggerBottom) {
+            box.classList.add('active')
+        } else {
+            box.classList.remove('active')
+        }
+    })
 }
