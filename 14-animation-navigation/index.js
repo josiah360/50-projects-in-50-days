@@ -1,5 +1,5 @@
-const btn = document.getElementById('toggle');
-const nav = document.getElementById('nav');
+const btn = document.querySelector('.btn');
+const nav = document.querySelector('nav')
 
 btn.addEventListener('click', () => {
     nav.classList.toggle('active')
