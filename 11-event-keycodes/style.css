@@ -12,9 +12,39 @@ body {
     height: 100vh;
     overflow: hidden;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1rem;
     text-align: center;
 }
 
+.container {
+    display: flex;
+    margin: 30px;
+    column-gap: 15px;
+}
+
+.card {
+    width: 120px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px rgb(192, 192, 192) solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card small {
+    position: absolute;
+    top: -20px;
+    font-size: 11px;
+    color: rgb(87, 87, 87);
+}
+
+.instruction {
+    background-color: #fff;
+    border: 1px rgb(192, 192, 192) solid;
+    padding: 15px 30px;
+}
