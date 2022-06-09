@@ -1,77 +1,47 @@
-const textarea = document.getElementById('textarea');
-const tagsContainer = document.getElementById('tags');
+const textarea = document.querySelector('textarea');
+const container = document.querySelector('.choice-container')
 
-textarea.addEventListener('keyup', (e) => {
-    createTags(e.target.value)
+window.addEventListener('keyup', (e) => {
+    const choices = textarea.value.split(',')
+        .filter(choice => choice
+        .trim() !== '')
+        .map(choice => choice.trim())
 
-    if(e.key === 'Enter') {
-        setTimeout(() => {
-            e.target.value = '';
-        }, 10)
-        getRandomChoice()
-    } else {
+        container.innerHTML = '';
 
-    }
+        choices.forEach(choice => {
+            const btn = document.createElement('button')
+            btn.classList.add('choice')
+            btn.innerText = choice
+            container.appendChild(btn)
+        })
+        
+        if(e.key === 'Enter') {
+            textarea.value = '';
+            flickerColor()
+        }
 })
 
-function createTags(input) {
-    const tags = input.split(',').filter(tag => tag.trim() !== '')
-    
-    tagsContainer.innerHTML = '';
-
-    tags.forEach(tag => {
-        const span = document.createElement('span');
-        span.classList.add('tag');
-        span.innerText = tag;
-
-        tagsContainer.appendChild(span)
-    })
+function pickRandom() {
+    const btns = document.querySelectorAll('.choice')
+    const random = Math.floor(Math.random() * btns.length)
+    return btns[random]
 }
 
-function getRandomChoice() {
-    const times = 30
+function flickerColor() {
+    const count = 32;
 
     const interval = setInterval(() => {
-        const randomTag = getRandomTag()
-
-        highlightTag(randomTag)
+        const random = pickRandom()
+        random.classList.add('active')
 
         setTimeout(() => {
-            unhighlightTag(randomTag)
+            random.classList.remove('active')
         }, 100)
-        
-    }, 100)
+    }, 100);
 
     setTimeout(() => {
-        clearInterval(interval);
-
-        setTimeout(() => {
-            const randomTag = getRandomTag()
-            highlightTag(randomTag)
-        }, 100) 
-        
-    }, 100 * times)
-}
-
-function getRandomTag() {
-    const tags = document.querySelectorAll('.tag');
-    return tags[Math.floor(Math.random() * tags.length)]
-}
-
-function highlightTag(tag) {
-    if(tag) {
-        tag.classList.add('highlight')
-    } else {
-        tagsContainer.innerText = 'Enter your choice first'
-    }
-    
-}
-
-function unhighlightTag(tag) {
-    if(tag) {
-        tag.classList.remove('highlight')
-    } else {
-        return
-    }
-    
+        clearInterval(interval)
+        pickRandom().classList.add('active')
+    }, (100 * count) + 100)
 }
