@@ -1,22 +1,18 @@
 const counters = document.querySelectorAll('.counter');
 
 counters.forEach(counter => {
-    const target = +counter.dataset.target
-    const decrement = Math.ceil(target/1000)
-    let startPoint = +counter.innerText
-    
+    const target = +counter.getAttribute('data-target');
+    const increment = target / 200;
+    let startPoint = 0;
+
     function incrementCounter() {
-        startPoint += decrement
-        
+        startPoint += increment
 
-        if(startPoint < target) {
-            counter.innerText = startPoint
-        } else {
-            counter.innerText = target
+        if(startPoint <= target) {
+            counter.innerHTML = Math.ceil(startPoint);
+            setTimeout(incrementCounter, 1)
         }
-
-        setTimeout(incrementCounter, 1)
     }
-
+    
     incrementCounter()
 })
