@@ -1,50 +1,38 @@
-const smallCups = document.querySelectorAll('.cup-small');
-const liters = document.getElementById('liters');
-const percentage = document.getElementById('percentage');
-const remained = document.getElementById('remained');
+const smallCups = document.querySelectorAll('.small-cup');
+const waterLevel  = document.querySelector('.water-level');
+const remained = document.querySelector('.remained');
+const litre = document.querySelector('.litre');
 
-updateBigCup()
-
-smallCups.forEach((cup, idx) => {
-    cup.addEventListener('click', () => {
-        highlightCup(idx)
+smallCups.forEach((smallCup, idx) => {
+    smallCup.addEventListener('click', () => {
+        highlightCups(idx, smallCup)
+        fillBigCup()
     })
 })
 
-function highlightCup(idx) {
-    if(smallCups[idx].classList.contains('full') && (smallCups[idx].nextElementSibling == null || !smallCups[idx].nextElementSibling.classList.contains('full')) ) {
-        idx--
+function highlightCups(idx, smallCup) {
+    if(smallCup.classList.contains('fill') && (smallCup.nextElementSibling == null ||!smallCup.nextElementSibling.classList.contains('fill'))) {
+        idx-= 1
     }
 
-    smallCups.forEach((cup, index) => {
-        if(idx >= index) {
-            cup.classList.add('full')
+    smallCups.forEach((cup, idx2) => {
+        if(idx2 <= idx) {
+            cup.classList.add('fill')
         } else {
-            cup.classList.remove('full')
+            cup.classList.remove('fill')
         }
     })
-
-    updateBigCup()
 }
 
-function updateBigCup() {
-    const fullCups = document.querySelectorAll('.cup-small.full').length
-    const totalCups = smallCups.length
+function fillBigCup() {
+    const filledCups = document.querySelectorAll('.fill').length;
+    const totalCups = smallCups.length;
     
-    if(fullCups === 0) {
-        percentage.style.visibility = 'hidden';
-        percentage.style.height = 0;
-    } else{
-        percentage.style.visibility = 'visible';
-        percentage.style.height = `${fullCups / totalCups * 330}px`;
-        percentage.innerText = `${fullCups / totalCups * 100}%`
-    }
+    waterLevel.style.height = `${(filledCups/totalCups) * 100}%`;
+    waterLevel.innerText = `${(filledCups/totalCups) * 100}%`;
+    litre.innerText = `${2 - (250 * filledCups / 1000)}L`
 
-    if(fullCups === totalCups) {
-        remained.style.visibility = 'hidden';
-        remained.style.height= 0;
-    } else {
-        remained.style.visibility = 'visible';
-        liters.innerText = `${2 - (250 * fullCups / 1000)}`;
-    }
+    waterLevel.style.opacity = waterLevel.innerText === '0%' ? '0' : '1';
+    remained.style.height = waterLevel.innerText === '100%' ? '0' : 'auto'
 }
+
