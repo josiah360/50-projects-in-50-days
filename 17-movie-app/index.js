@@ -1,69 +1,69 @@
-const api_url = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=c27701ab70ee6ee4d3ab55460df8c76b&page=1';
+const apiKey = 'c27701ab70ee6ee4d3ab55460df8c76b';
+const api = 'https://api.themoviedb.org/3/discover/movie/?sort_by=popularity.desc&api_key=c27701ab70ee6ee4d3ab55460df8c76b'
+const searchPath = `https://api.themoviedb.org/3/search/movie?api_key=c27701ab70ee6ee4d3ab55460df8c76b&page=1&query=`
+const imagePath = 'https://image.tmdb.org/t/p/w1280'
 
-const img_path = 'https://image.tmdb.org/t/p/w1280';
+const main = document.querySelector('main');
+const cards = document.querySelectorAll('.card');
+const form = document.querySelector('form');
+const searchInput = document.querySelector('input[type=search]')
 
-const search_api = 'https://api.themoviedb.org/3/search/movie?api_key=c27701ab70ee6ee4d3ab55460df8c76b&query=';
+getMovie(api)
 
-
-const form = document.getElementById('form');
-const search = document.getElementById('search');
-const main = document.getElementById('main')
-
-
-getMovies(api_url)
-
-async function getMovies(url) {
-    const response = await fetch(url);
-    const data = await response.json()
-
-    showMovies(data.results)
-}
-
-function showMovies(movies) {
-    main.innerHTML = '';
-
-    movies.forEach(movie => {
-        const {title, poster_path, vote_average, overview } = movie
-
-        const div = document.createElement('div');
-        div.classList.add('movie')
-
-        div.innerHTML = `<img src="${img_path + poster_path}" alt="movie-poster">
-        <div class="movie-info">
-          <h3>${title}</h3>
-          <span class="${getClass(vote_average)}">${vote_average}</span>
-        </div>
-        <div class="overview">
-          <h3>Overview</h3>
-         ${overview} 
-        </div> `;
-
-        main.appendChild(div);
-    })
-}
-
-function getClass(rating) {
-    if(rating >= 8) {
-        return 'green';
-    } 
-    else if(rating >= 5) {
-        return 'orange';
-    }
-    else if(rating < 5) {
-        return 'red';
-    }
+function getMovie(api) {
+    fetch(api)
+    .then(result => result.json())
+    .then(data => updatePage(data.results))
 }
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
+    main.innerHTML = '';
+    const searchTerm = searchInput.value;
 
-    const searchTerm = search.value;
-
-    if(searchTerm && search !== '') {
-        getMovies(search_api + searchTerm)
-
-        search.value = '';
+    if(searchTerm && searchTerm !== '') {
+        getMovie(`${searchPath + searchTerm}`)
+        searchInput.value = '';
     } else {
         window.location.reload()
     }
+    
 })
+
+function updatePage(movieData) {
+
+    movieData.forEach(movie => {
+        const {title, poster_path, vote_average, overview} = movie;
+
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `<img src="${imagePath + poster_path}" class="poster">
+        <div class="title-div">
+          <h3 class="title">${title}</h3>
+          <div class="rating ${getRating(vote_average)}">${vote_average}</div>
+        </div>
+        <div class="overview">
+          <h3>Overview</h3>
+          <p>${overview}</p>
+        </div>`;
+
+        main.appendChild(card)
+    })
+}
+
+function getRating(vote) {
+    if(vote >= 8) {
+        return 'green'
+    } 
+    
+    else if(vote >= 5) {
+        return 'orange'
+    } 
+    
+    else if(vote < 5) {
+        return 'red'
+    }
+}
+
+
+
