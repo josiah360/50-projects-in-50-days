@@ -1,42 +1,47 @@
-const arrowLeft = document.querySelector('.left-arrow');
-const arrowRight = document.querySelector('.right-arrow');
-const slides = document.querySelectorAll('.slide')
-const body = document.querySelector('body')
+const body = document.querySelector('body');
+const slides = document.querySelectorAll('.slide');
+const leftBtn = document.querySelector('.left-btn');
+const rightBtn = document.querySelector('.right-btn');
+
 
 let currentActive = 0;
 
-arrowRight.addEventListener('click', () => {
+rightBtn.addEventListener('click', () => {
     currentActive += 1;
-    updateActive()
-    updateSlide(slides, currentActive)
-    updateBackground(body, slides, currentActive)
+
+    updateCurrentActive()
+    updateSlides()
+    updateBg()
+   
 })
 
-arrowLeft.addEventListener('click', () => {
+leftBtn.addEventListener('click', () => {
     currentActive -= 1;
 
-    updateActive()
-    updateSlide()
-    updateBackground(body, slides, currentActive)
+    updateCurrentActive()
+    updateSlides()
+    updateBg()
 })
 
-function updateActive() {
-    if(currentActive > (slides.length - 1)) {
+function updateCurrentActive() {
+    if(currentActive > (slides.length -  1)) {
         currentActive = 0;
-    } else if(currentActive < 0) {
-        currentActive = slides.length - 1
+    }
+
+    if(currentActive < 0) {
+        currentActive = slides.length - 1;
     }
 }
 
-function updateSlide() {
+function updateSlides() {
     slides.forEach(slide => {
-        slide.classList.remove('active')
+        slide.classList.remove('active');
     })
 
     slides[currentActive].classList.add('active')
 }
 
-function updateBackground(elem, slid, current) {
-    elem.style.backgroundImage = slid[current].style.backgroundImage
+function updateBg() {
+    body.style.backgroundImage = slides[currentActive].style.backgroundImage
+    
 }
-
