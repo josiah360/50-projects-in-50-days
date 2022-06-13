@@ -1,19 +1,21 @@
 const btn = document.querySelector('button');
 
-btn.addEventListener('click', (e)=> {
+btn.addEventListener('click', (e) => {
     const x = e.clientX;
-    const y = e.clientY;
-    const top = btn.offsetTop
-    const left = btn.offsetLeft
+    const y = e.clientY
 
-    const rippleSpan = document.createElement('span');
-    rippleSpan.classList.add('circle');
-    btn.appendChild(rippleSpan)
+    const left = x - btn.offsetLeft;
+    const top = y - btn.offsetTop;
 
-    rippleSpan.style.top = `${y - top}px` ;
-    rippleSpan.style.left = `${x - left}px`;
+    const circle = document.createElement('span');
+    circle.style.top = `${top}px`;
+    circle.style.left = `${left}px`;
+    circle.classList.add('circle');
+
+    btn.appendChild(circle)
 
     setTimeout(() => {
-        rippleSpan.remove()
+        circle.remove()
     }, 500)
+
 })
