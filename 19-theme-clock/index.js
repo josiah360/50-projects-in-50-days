@@ -11,7 +11,14 @@ const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 toggle.addEventListener('click', () => {
-    html.classList.toggle('dark')
+    if(toggle.innerText === 'Dark Mode') {
+        html.classList.add('dark');
+        toggle.innerText = 'Light Mode';
+    } else {
+        html.classList.remove('dark');
+        toggle.innerText = 'Dark Mode';
+    }
+    
    
 });
 
@@ -30,7 +37,9 @@ function updateTime() {
     hourHand.style.transform = `translate(-50%, -100%) rotate(${(hour / 12) * 360}deg)`;
 
     const ampm = hour > 12 ? 'PM' : 'AM';
-    time.innerText = `${hour12}:${min} ${ampm}`;
+    
+
+    time.innerText = `${hour12 < 10 ? `${'0' + hour12}` : hour12}:${min < 10 ? `${'0' + min}` : min} ${ampm}`;
     date.innerText = `${day}, ${month}`;
     dayNum.innerText = dayDate;
 }
