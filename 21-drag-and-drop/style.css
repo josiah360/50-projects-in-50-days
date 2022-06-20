@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo:300&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    font-family: 'Heebo', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+ 
+button {
+    padding: 15px 30px;
+    background-color: purple;
+    border: 0;
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes grow {
+    to {
+        opacity: 0;
+        width: 80px;
+        height: 80px;
+    }
+}
+
+.circle {
+    position: absolute;
+    display: block;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background-color: white;
+    border-radius: 50%;
+    animation: grow .5s forwards;
+}
