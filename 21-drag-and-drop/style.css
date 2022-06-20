@@ -30,7 +30,17 @@ body {
     width: 145px;
     cursor: pointer;
 }
- 
+
+.hold {
+    border: solid 5px #ccc;
+}
+
+.hovered {
+    background-color: #ccc;
+    border-color: white;
+    border-style: dashed;
+
+}
 
 @media (max-width: 800px) {
     body {
