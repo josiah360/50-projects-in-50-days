@@ -6,9 +6,9 @@ fill.addEventListener('dragend', dragEnd);
 
 for(const box of boxes) {
     box.addEventListener('dragover', dragOver);
-    box.addEventListener('dragover', dragOver);
-    box.addEventListener('dragover', dragOver);
-    box.addEventListener('dragover', dragOver);
+    box.addEventListener('dragenter', dragEnter);
+    box.addEventListener('dragleave', dragLeave);
+    box.addEventListener('drop', dragDrop);
 }
 
 function dragStart(e) {
@@ -20,18 +20,20 @@ function dragEnd() {
     this.className = 'fill'
 }
 
-function dragOver() {
-
+function dragOver(e) {
+    e.preventDefault()
 }
 
-function dragEnter() {
-
+function dragEnter(e) {
+    e.preventDefault()
+    this.className += ' hovered';
 }
 
 function dragLeave() {
-  
+    this.className = 'empty';
 }
 
 function dragDrop() {
-
+    this.className = 'empty';
+    this.appendChild(fill)
 }
