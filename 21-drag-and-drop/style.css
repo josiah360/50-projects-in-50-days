@@ -15,3 +15,22 @@ body {
     margin: 0;
 }
 
+.empty {
+    height: 150px;
+    width: 150px;
+    background-color: white;
+    margin: 10px;
+    border: solid 3px black;
+}
+
+.fill {
+    width: 145px;
+    height: 145px;
+    background-image: url('https://unsplash.com/random/145x145');
+}
+
+@media (max-width: 800px) {
+    body {
+        flex-direction: column;
+    }
+}
