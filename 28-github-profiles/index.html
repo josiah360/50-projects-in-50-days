@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./style.css">
     <script src="https://kit.fontawesome.com/b57fc9baeb.js" crossorigin="anonymous"></script>
-    <script defer src="./index.js"></script>
+    
   </head>
     
   <body>
@@ -14,27 +14,32 @@
         <input type="text" id="search" placeholder="Search a Github User">
       </form>
 
-      <main>
-        <div class="card">
+      <main class="card">
+        <div>
           <img src="https://randomuser.me/api/portraits/men/30.jpg" alt="" class="avatar">
         </div>
         <div class="user-info">
           <h2>John Doe</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, magni!z</p>
+
+          <ul>
+            <li>300 <strong>Followers</strong></li>
+            <li>100 <strong>Following</strong></li>
+            <li>30 <strong>Repos</strong></li>
+          </ul>
+  
+          <div id="repos">
+            <a href="#" class="repo">Repo 1</a>
+            <a href="#" class="repo">Repo 2</a>
+            <a href="#" class="repo">Repo 3</a>
+          </div>
         </div>
 
-        <ul>
-          <li>300 <strong>Followers</strong></li>
-          <li>100 <strong>Following</strong></li>
-          <li>30 <strong>Repos</strong></li>
-        </ul>
-
-        <div id="repos">
-          <a href="#" class="repo">Repo 1</a>
-          <a href="#" class="repo">Repo 2</a>
-          <a href="#" class="repo">Repo 3</a>
-        </div>
+        
       </main>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js" integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="./index.js"></script>
   </body>
 
 </html> 
