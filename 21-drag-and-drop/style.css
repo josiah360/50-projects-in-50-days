@@ -15,32 +15,3 @@ body {
     margin: 0;
 }
 
-.empty {
-    height: 150px;
-    width: 150px;
-    background-color: white;
-    margin: 10px;
-    border: solid 3px black;
-}
-
-.fill {
-    width: 145px;
-    height: 145px;
-    background-image: url('https://source.unsplash.com/random/150x150');
-}
-
-.hold {
-    border: 3px solid #ccc;
-}
-
-.hovered {
-    background-color: #333;
-    border-color: white;
-    border-style: dashed;
-}
-
-@media (max-width: 800px) {
-    body {
-        flex-direction: column;
-    }
-}
