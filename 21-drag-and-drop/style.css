@@ -16,3 +16,17 @@ body {
     margin: 0;
 }
 
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: 3px solid black;
+}
+
+
+
+@media (max-width: 500px) {
+    body {
+        flex-direction: column;
+    }
+}
