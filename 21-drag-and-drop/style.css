@@ -23,7 +23,22 @@ body {
     border: 3px solid black;
 }
 
+.fill {
+    width: 100%;
+    height: 100%;
+    background: url('https://source.unsplash.com/random/150x150') no-repeat center / cover;
+    cursor: pointer;
+}
 
+.hold {
+    border: #555 solid 3px;
+}
+
+.hovered {
+    border-style: dashed;
+    border-color: white;
+    background-color: #333;
+}
 
 @media (max-width: 500px) {
     body {
