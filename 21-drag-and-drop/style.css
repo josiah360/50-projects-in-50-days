@@ -10,8 +10,40 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 20px;
     height: 100vh;
     overflow: hidden;
     margin: 0;
 }
 
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: black 3px solid;
+}
+
+.fill {
+    width: 100%;
+    height: 100%;
+    background-image: url('https://source.unsplash.com/random/150x150');
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.hovered {
+    background-color: #333;
+    border-style: dashed;
+    border-color: white;
+}
+
+.hold {
+    border: #555 solid 3px;
+}
+
+@media (max-width: 500px) {
+    body {
+        flex-direction: column;
+    }
+}
