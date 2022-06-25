@@ -14,25 +14,28 @@ boxes.forEach(box => {
 
 
 function dragStart() {
-
+    this.className += ' hold';
+    setTimeout(() => this.className = 'invisible')
 }
 
 function dragEnd() {
-    
+    this.className = 'fill'
 }
 
-function dragOver() {
-    
+function dragOver(e) {
+    e.preventDefault()
 }
 
-function dragEnter() {
-    
+function dragEnter(e) {
+    e.preventDefault()
+    this.className += ' hovered'
 }
 
-function dragLeave()) {
-    
+function dragLeave() {
+    this.className = 'box'
 }
 
 function dragDrop() {
-    
+    this.appendChild(frame)
+    this.className = 'box'
 }
