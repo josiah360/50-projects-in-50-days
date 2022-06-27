@@ -1,11 +1,21 @@
-const nav = document.querySelector('.nav');
+const nav = document.querySelector('nav');
 
-window.addEventListener('scroll', fixNav);
+let lastScroll = 0
 
-function fixNav() {
-    if(scrollY > nav.offsetHeight + 150) {
+window.addEventListener('scroll', () => {
+    const scroll = window.scrollY;
+    const navHeight = nav.clientHeight
+    if(scroll > navHeight + 30) {
         nav.classList.add('active')
     } else {
         nav.classList.remove('active')
     }
-}
+
+    // if(lastScroll > window.scrollY) {
+    //     nav.classList.add('active')
+    // } else {
+    //         nav.classList.remove('active')
+    // }
+
+    // lastScroll = window.scrollY
+})
