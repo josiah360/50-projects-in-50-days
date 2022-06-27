@@ -18,3 +18,33 @@ body {
     margin: 0;
 }
 
+.btn {
+    color: rebeccapurple;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.toasts {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+.toast {
+    background-color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 12px;
+    text-align: center;
+}
