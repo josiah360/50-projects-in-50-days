@@ -11,3 +11,82 @@ body {
     height: 100vh;
 }
 
+.wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.left-slider {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 35%;
+    height: 100%;
+    transition: transform 1s ease-in-out;
+}
+
+.slide {
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide h2 {
+    font-size: 2em;
+    margin-top: -1em;
+}
+
+.right-slider {
+    position: absolute;
+    top: 0;
+    left: 35%;
+    width: 65%;
+    height: 100%;
+    transition: transform 1s ease-in-out;
+}
+
+.right-slider div {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.btn {
+    padding: 1em;
+    font-size: 1em;
+    border: none;
+    position: absolute;
+    color: #999;
+    cursor: pointer;
+    left: 35%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.btn:hover {
+    color: #444;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn-down {
+    transform: translateX(-100%);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.btn-up {
+    transform: translateY(-100%);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
