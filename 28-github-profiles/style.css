@@ -12,106 +12,100 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    row-gap: 20px;
     height: 100vh;
     overflow: hidden;
     margin: 0;
+    padding: 1em;
 }
 
-.user-form {
+form {
     width: 100%;
-    max-width: 700px;
+    max-width: 550px;
 }
 
-.user-form input {
+.search {
     width: 100%;
-    display: block;
-    background-color: #4c2885;
-    border: none;
+    padding: 1em;
     border-radius: 10px;
-    color: #fff;
-    padding: 1rem;
-    margin-bottom: 2em;
-    font-family: inherit;
-    font-size: 1rem;
-    box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
-                0 15px 40px rgba(0, 0, 0, 0.1);
+    border: none;
+    background-color: rgb(98, 20, 172);
+    color: white;
+    font-size: .9em;
 }
 
-.user-form input::placeholder {
-    color: #bbb;
+.search::placeholder {
+    color: rgb(168, 148, 192);
 }
 
-.user-form input:focus {
+.search:focus {
     outline: none;
 }
 
-.card {
-    max-width: 800px;
-    background-color: #4c2885;
-    border-radius: 20px;
-    box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
-                0 15px 40px rgba(0, 0, 0, 0.1);
-    display: flex;
-    padding: 3rem;
-    margin: 0 1rem;
-}
-
-.avatar {
-    border-radius: 50%;
-    border: 10px solid #2a2a72;
-    height: 150px;
-    width: 150px;
+main {
+    width: 100%;
+    max-width: 650px;
+    background-color: rgb(98, 20, 172);
+    border-radius: 10px;
+    padding: 2em;
 }
 
 .user-info {
-    color: #eee;
-    margin-left: 2rem;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
 }
 
-.user-info h2 {
-    margin-top: 0;
+.user-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 10px solid #2a2a72;
 }
 
-.user-info ul {
-    list-style-type: none;
+.user-details h2 {
+    margin: 0 0 15px;
+    font-size: 1.5em;
+}
+
+.user-details p {
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: .9em;
+}
+
+.repo-details {
     display: flex;
     justify-content: space-between;
-    padding: 0;
-    max-width: 400px;
+    width: 350px;
+    margin-bottom: 15px;
 }
 
-.user-info ul li {
-    display: flex;
-    align-items: center;
+.repo-details p {
+    margin: 0;
 }
 
-.user-info ul li strong {
-    font-size: 0.9rem;
-    margin-left: 0.5rem;
+.repo-details p span {
+    font-size: .9em;
 }
 
-.repo {
-    text-decoration: none;
-    color: white;
+.repos span {
     background-color: #2a2a72;
-    font-size: 0.7rem;
-    padding: .25rem 0.5rem;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
+    font-size: .8em;
+    padding: .3em .8em;
     display: inline-block;
+    margin-bottom: 5px;
 }
+
+
+
+
+
 
 @media (max-width: 500px) {
-    .card {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .user-form {
-        max-width: 400px;
-    }
-
     .user-info {
-        margin-left: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }
