@@ -39,6 +39,8 @@ p {
 }
 
 .grow-heart {
+    position: absolute;
+    transform: translate(-50%, -50%) scale(0);
     color: red;
     animation: grow .5s ease-in forwards;
 }
@@ -46,6 +48,6 @@ p {
 @keyframes grow{
     to {
         opacity: 0;
-        transform: scale(3);
+        transform: translate(-50%, -50%) scale(0);
     }
 }
