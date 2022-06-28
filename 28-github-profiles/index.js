@@ -20,8 +20,10 @@ async function getUser(username) {
     } 
     
     catch(err) {
-        if(err.statusText === '404') {
-            console.log('This user profile does not exist');
+        if(err.response.status === 404) {
+            const userInfo = `<div class="user-info">This user profile does not exist</div>`
+            main.innerHTML = userInfo
+
         }
     }
 }
