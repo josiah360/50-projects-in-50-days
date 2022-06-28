@@ -45,15 +45,15 @@ form {
 main {
     width: 100%;
     max-width: 650px;
-    background-color: rgb(98, 20, 172);
-    border-radius: 10px;
-    padding: 2em;
 }
 
 .user-info {
     display: flex;
     gap: 20px;
     align-items: flex-start;
+    background-color: rgb(98, 20, 172);
+    padding: 2em;
+    border-radius: 10px;
 }
 
 .user-img {
@@ -95,6 +95,7 @@ main {
     padding: .3em .8em;
     display: inline-block;
     margin-bottom: 5px;
+    margin-right: 5px;
 }
 
 
