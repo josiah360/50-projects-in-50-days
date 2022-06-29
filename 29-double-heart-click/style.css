@@ -32,6 +32,7 @@ p {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     position: relative;
+    overflow: hidden;
 }
 
 .fa-heart {
@@ -41,13 +42,12 @@ p {
 .grow-heart {
     position: absolute;
     transform: translate(-50%, -50%) scale(0);
-    color: red;
-    animation: grow .5s ease-in forwards;
+    animation: grow .4s linear forwards;
 }
 
 @keyframes grow{
     to {
         opacity: 0;
-        transform: translate(-50%, -50%) scale(0);
+        transform: translate(-50%, -50%) scale(5);
     }
 }
