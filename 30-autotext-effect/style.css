@@ -21,11 +21,21 @@ body {
 .speed-wrapper {
     position: absolute;
     bottom: 40px;
-    padding: 1em;
-    background-color: rgba(0,0,0,0.5);
+    padding: .5em 1em;
+    background-color: rgba(0,0,0,0.2);
     display: flex;
     justify-content: center;
     align-items: center;
     column-gap: 10px;
-    color: white;
+}
+
+.speed-wrapper input {
+    width: 40px;
+    padding: .5em;
+    border: none;
+    background-color: darksalmon;
+}
+
+.speed-wrapper input:focus {
+    outline: none;
 }
